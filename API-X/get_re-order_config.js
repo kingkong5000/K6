@@ -28,17 +28,11 @@ export const options = {
       ]
     },
     Average2: {
-      executor: 'ramping-arrival-rate',
-      preAllocatedVUs: 50,
-      startRate: 10,
-      timeUnit: '10s',
-      startTime: '50s',
-      stages: [
-        { target: 10, duration: '10s' },
-        { target: 11, duration: '10s' },
-        { target: 12, duration: '10s' },
-        { target: 13, duration: '10s' }
-      ]
+      executor: 'shared-iterations',
+      vus: 10,
+      iterations: 10,
+      maxDuration: '10s',
+      startTime: '60s'
     }
   }
 }
