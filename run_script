@@ -1,0 +1,11 @@
+K6_INFLUXDB_ORGANIZATION="my-org" \
+K6_INFLUXDB_BUCKET="my-bucket" \
+K6_INFLUXDB_TOKEN="y4cBzsmb1Y2wLGzd0gmv4x2S2g4d_WQljVfxPKqeWYSJSuv0oqRAg43euKjUPUxeTbD_LQOwlgcHZDFjRaYaYA==" \
+./k6 run -o xk6-influxdb=http://localhost:8086/my-bucket noti_hub.js
+
+
+
+
+
+//run and write output to json file name output.json
+k6 run --out json=output.json try.js

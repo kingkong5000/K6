@@ -1,0 +1,35 @@
+version: '2'
+services:
+  # nginx:
+  #   image: nginx:1.21.6-alpine
+  #   ports:
+  #     - '80:80'
+  #   volumes:
+  #     - ./nginx/conf.d:/etc/nginx/conf.d
+  #     # - ./nginx/certs/nginx.key:/etc/nginx/certs/nginx.key
+  #     # - ./nginx/certs/nginx.crt:/etc/nginx/certs/nginx.crt  
+  influxdb:
+    image: influxdb:1.8.10
+    ports:
+      - '8086:8086'
+    volumes:
+      - influxdb-storage:/var/lib/influxdb
+    environment:
+      - INFLUXDB_DB=k6
+      - INFLUXDB_ADMIN_USER=big.g
+      - INFLUXDB_ADMIN_PASSWORD=Kingkongba500
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - '3000:3000'
+    volumes:
+      - grafana-storage:/var/lib/grafana
+      - ./grafana-provisioning/:/etc/grafana/provisioning
+    depends_on:
+      - influxdb
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+volumes:
+  influxdb-storage:
+  grafana-storage:
