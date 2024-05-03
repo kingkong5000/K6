@@ -34,7 +34,7 @@ export default function () {
   const header = {
     headers: {
       'Content-Type': 'application/json',
-      Authorization: 'Bearer CGRkOOLwXfF8U74HFHvBjIOPlKkQ3DKPWUEgChWdHEk.oZbFx-moXaPSU2tkD1hvyJtDpensT-SID58asrzb3d4'
+      Authorization: 'Bearer {}'
     }
   }
 
